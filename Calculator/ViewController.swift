@@ -12,75 +12,40 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var display: UILabel!
     
-    var userIsTyping = false
+    var userIsTypingNumber = false
+    var brain = CalculatorBrain()
     
     @IBAction func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
-        if userIsTyping {
+        if userIsTypingNumber {
             display.text = display.text! + digit
         } else {
             display.text = digit
-            userIsTyping = true
+            userIsTypingNumber = true
         }
-    }
-    
-    @IBAction func floatingPoint() {
-        if userIsTyping {
-            if !display.text!.containsString(".") {
-                display.text = display.text! + "."
-            }
-        } else {
-            display.text = "0."
-            userIsTyping = true
-        }
-    }
-    
-    @IBAction func pi() {
-        if userIsTyping {
-            enter()
-        }
-        display.text = M_PI.description
-        enter()
     }
     
     @IBAction func operate(sender: UIButton) {
-        let operation = sender.currentTitle!
-        if userIsTyping {
+        if userIsTypingNumber {
             enter()
         }
-        
-        switch operation {
-            case "×"  : performOperation { $0 * $1 }
-            case "÷"  : performOperation { $1 / $0 }
-            case "+"  : performOperation { $0 + $1 }
-            case "−"  : performOperation { $1 - $0 }
-            case "√"  : performOperation { sqrt($0)}
-            case "sin": performOperation { sin($0) }
-            case "cos": performOperation { cos($0) }
-            default: break
-        }
-    }
-    
-    private func performOperation(operation: (Double, Double) -> (Double)) {
-        if operandStack.count >= 2 {
-            displayValue = operation(operandStack.removeLast(), operandStack.removeLast())
-            enter()
+        if let operation = sender.currentTitle {
+            if let result = brain.performOperation(operation) {
+                displayValue = result
+            } else {
+                displayValue = 0
+            } 
         }
     }
 
-    private func performOperation(operation: Double -> Double) {
-        if operandStack.count >= 1 {
-            displayValue = operation(operandStack.removeLast())
-            enter()
-        }
-    }
-    
-    var operandStack = Array<Double>()
-    
     @IBAction func enter() {
-        userIsTyping = false
-        operandStack.append(displayValue)
-        print("operandStack = \(operandStack)")
+        userIsTypingNumber = false
+        if let result = brain.pushOperand(displayValue) {
+            displayValue = result
+        } else {
+            // better solution would be make displayValue optional
+            displayValue = 0
+        }
     }
     
     var displayValue: Double {
