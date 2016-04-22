@@ -37,9 +37,9 @@ class CalculatorBrain {
         }
 
         learnOp(Op.BinaryOperation("×", *))
-        learnOp(Op.BinaryOperation("÷", $1 / $0))
+        learnOp(Op.BinaryOperation("÷"){ $1 / $0 })
         learnOp(Op.BinaryOperation("+", +))
-        learnOp(Op.BinaryOperation("−", $1 - $0))
+        learnOp(Op.BinaryOperation("−"){ $1 - $0 })
         learnOp(Op.UnaryOperation("√", sqrt))
     }
 
@@ -69,6 +69,11 @@ class CalculatorBrain {
             }
         }
         return (nil, ops)
+    }
+
+    func clear() -> Double? {
+        opStack.removeAll()
+        return evaluate()
     }
 
     // returning optional

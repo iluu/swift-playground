@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var display: UILabel!
+    @IBOutlet weak var history: UILabel!
     
     var userIsTypingNumber = false
     var brain = CalculatorBrain()
@@ -34,10 +35,16 @@ class ViewController: UIViewController {
                 displayValue = result
             } else {
                 displayValue = 0
-            } 
+            }  
         }
     }
 
+    @IBAction func clear() {
+        brain.clear()
+        displayValue = 0
+        historyValue = ""
+    }
+    
     @IBAction func enter() {
         userIsTypingNumber = false
         if let result = brain.pushOperand(displayValue) {
@@ -54,6 +61,15 @@ class ViewController: UIViewController {
         }
         set {
             display.text = "\(newValue)"
+        }
+    }
+    
+    var historyValue: String {
+        get {
+            return history.text!
+        }
+        set {
+            history.text = newValue
         }
     }
 }
