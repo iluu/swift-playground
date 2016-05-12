@@ -20,24 +20,16 @@ class ViewController: UIViewController {
             } else {
                 append(".")
             }
-        } else {
-            showError("Wrong value")
         }
     }
 
-    
     @IBAction func appendPi(sender: UIButton) {
         enter()
         append("\(M_PI)")
         enter()
     }
     
-    func showError(error: String) {
-        history.text = error
-    }
-
     func append(sign: String) {
-        history.text = ""
         if userIsTypingNumber {
             display.text = display.text! + sign
         } else {
@@ -50,11 +42,11 @@ class ViewController: UIViewController {
         if userIsTypingNumber {
             enter()
         }
+        historyValue = historyValue + "\(sender.currentTitle!) ";
         if let operation = sender.currentTitle {
             if let result = brain.performOperation(operation) {
                 displayValue = result
             } else {
-                showError("Unknown operation")
                 displayValue = 0
             }
         }
@@ -68,6 +60,7 @@ class ViewController: UIViewController {
 
     @IBAction func enter() {
         userIsTypingNumber = false
+        historyValue = historyValue + "\(displayValue) "
         if let result = brain.pushOperand(displayValue) {
             displayValue = result
         } else {
