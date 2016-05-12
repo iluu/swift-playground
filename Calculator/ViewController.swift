@@ -1,31 +1,38 @@
-//
-//  ViewController.swift
-//  Calculator
-//
-//  Created by Karolina Kafel on 11/12/15.
-//  Copyright © 2015 Karolina Kafel. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
-    
+
     @IBOutlet weak var display: UILabel!
     @IBOutlet weak var history: UILabel!
-    
+
     var userIsTypingNumber = false
     var brain = CalculatorBrain()
-    
+
     @IBAction func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
+        append(digit)
+    }
+
+    @IBAction func floatingPoint(sender: UIButton) {
+        if !display.text!.containsString(".") {
+            if (!userIsTypingNumber){
+                append("0.")
+            } else {
+                append(".")
+            }
+        }
+        print(display.text!)
+    }
+
+    func append(sign: String) {
         if userIsTypingNumber {
-            display.text = display.text! + digit
+            display.text = display.text! + sign
         } else {
-            display.text = digit
+            display.text = sign
             userIsTypingNumber = true
         }
     }
-    
+
     @IBAction func operate(sender: UIButton) {
         if userIsTypingNumber {
             enter()
@@ -35,7 +42,7 @@ class ViewController: UIViewController {
                 displayValue = result
             } else {
                 displayValue = 0
-            }  
+            }
         }
     }
 
@@ -44,7 +51,7 @@ class ViewController: UIViewController {
         displayValue = 0
         historyValue = ""
     }
-    
+
     @IBAction func enter() {
         userIsTypingNumber = false
         if let result = brain.pushOperand(displayValue) {
@@ -54,7 +61,7 @@ class ViewController: UIViewController {
             displayValue = 0
         }
     }
-    
+
     var displayValue: Double {
         get {
             return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
@@ -63,7 +70,7 @@ class ViewController: UIViewController {
             display.text = "\(newValue)"
         }
     }
-    
+
     var historyValue: String {
         get {
             return history.text!

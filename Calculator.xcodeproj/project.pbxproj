@@ -12,8 +12,19 @@
 		332CF3561C1AFDF000B83010 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 332CF3541C1AFDF000B83010 /* Main.storyboard */; };
 		332CF3581C1AFDF000B83010 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 332CF3571C1AFDF000B83010 /* Assets.xcassets */; };
 		332CF35B1C1AFDF000B83010 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 332CF3591C1AFDF000B83010 /* LaunchScreen.storyboard */; };
+		333A58EC1CD364F20077BB72 /* CalculatorBrainTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333A58EB1CD364F20077BB72 /* CalculatorBrainTest.swift */; };
 		33CF5F3D1CC0EB1F00B0C92A /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CF5F3C1CC0EB1F00B0C92A /* CalculatorBrain.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		333A58E61CD364900077BB72 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 332CF3451C1AFDEF00B83010 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 332CF34C1C1AFDEF00B83010;
+			remoteInfo = Calculator;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		332CF34D1C1AFDEF00B83010 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -23,11 +34,21 @@
 		332CF3571C1AFDF000B83010 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		332CF35A1C1AFDF000B83010 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		332CF35C1C1AFDF000B83010 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		333A58E11CD364900077BB72 /* CalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		333A58E51CD364900077BB72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		333A58EB1CD364F20077BB72 /* CalculatorBrainTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorBrainTest.swift; sourceTree = "<group>"; };
 		33CF5F3C1CC0EB1F00B0C92A /* CalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		332CF34A1C1AFDEF00B83010 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		333A58DE1CD364900077BB72 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				332CF34F1C1AFDEF00B83010 /* Calculator */,
+				333A58E21CD364900077BB72 /* CalculatorTests */,
 				332CF34E1C1AFDEF00B83010 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				332CF34D1C1AFDEF00B83010 /* Calculator.app */,
+				333A58E11CD364900077BB72 /* CalculatorTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -75,6 +98,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		333A58E21CD364900077BB72 /* CalculatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				333A58E51CD364900077BB72 /* Info.plist */,
+				333A58EB1CD364F20077BB72 /* CalculatorBrainTest.swift */,
+			);
+			path = CalculatorTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -95,18 +127,40 @@
 			productReference = 332CF34D1C1AFDEF00B83010 /* Calculator.app */;
 			productType = "com.apple.product-type.application";
 		};
+		333A58E01CD364900077BB72 /* CalculatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 333A58EA1CD364900077BB72 /* Build configuration list for PBXNativeTarget "CalculatorTests" */;
+			buildPhases = (
+				333A58DD1CD364900077BB72 /* Sources */,
+				333A58DE1CD364900077BB72 /* Frameworks */,
+				333A58DF1CD364900077BB72 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				333A58E71CD364900077BB72 /* PBXTargetDependency */,
+			);
+			name = CalculatorTests;
+			productName = CalculatorTests;
+			productReference = 333A58E11CD364900077BB72 /* CalculatorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		332CF3451C1AFDEF00B83010 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0710;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Karolina Kafel";
 				TargetAttributes = {
 					332CF34C1C1AFDEF00B83010 = {
 						CreatedOnToolsVersion = 7.1.1;
+					};
+					333A58E01CD364900077BB72 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 332CF34C1C1AFDEF00B83010;
 					};
 				};
 			};
@@ -124,6 +178,7 @@
 			projectRoot = "";
 			targets = (
 				332CF34C1C1AFDEF00B83010 /* Calculator */,
+				333A58E01CD364900077BB72 /* CalculatorTests */,
 			);
 		};
 /* End PBXProject section */
@@ -136,6 +191,13 @@
 				332CF35B1C1AFDF000B83010 /* LaunchScreen.storyboard in Resources */,
 				332CF3581C1AFDF000B83010 /* Assets.xcassets in Resources */,
 				332CF3561C1AFDF000B83010 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		333A58DF1CD364900077BB72 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,7 +214,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		333A58DD1CD364900077BB72 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				333A58EC1CD364F20077BB72 /* CalculatorBrainTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		333A58E71CD364900077BB72 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 332CF34C1C1AFDEF00B83010 /* Calculator */;
+			targetProxy = 333A58E61CD364900077BB72 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		332CF3541C1AFDF000B83010 /* Main.storyboard */ = {
@@ -279,6 +357,37 @@
 			};
 			name = Release;
 		};
+		333A58E81CD364900077BB72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = CalculatorTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.iluu.CalculatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Calculator.app/Calculator";
+			};
+			name = Debug;
+		};
+		333A58E91CD364900077BB72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = CalculatorTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.iluu.CalculatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Calculator.app/Calculator";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -299,6 +408,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		333A58EA1CD364900077BB72 /* Build configuration list for PBXNativeTarget "CalculatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				333A58E81CD364900077BB72 /* Debug */,
+				333A58E91CD364900077BB72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

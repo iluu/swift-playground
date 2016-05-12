@@ -1,11 +1,3 @@
-//
-//  CalculatorBrain.swift
-//  Calculator
-//
-//  Created by Karolina Kafel on 15/04/16.
-//  Copyright © 2016 Karolina Kafel. All rights reserved.
-//
-
 import Foundation
 
 class CalculatorBrain {
