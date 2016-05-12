@@ -137,7 +137,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="π"/>
                                         <connections>
-                                            <action selector="appendDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zUh-hS-ohC"/>
+                                            <action selector="appendPi:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EvD-CO-x7S"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bMo-eu-Gij">

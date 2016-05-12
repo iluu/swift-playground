@@ -20,11 +20,24 @@ class ViewController: UIViewController {
             } else {
                 append(".")
             }
+        } else {
+            showError("Wrong value")
         }
-        print(display.text!)
+    }
+
+    
+    @IBAction func appendPi(sender: UIButton) {
+        enter()
+        append("\(M_PI)")
+        enter()
+    }
+    
+    func showError(error: String) {
+        history.text = error
     }
 
     func append(sign: String) {
+        history.text = ""
         if userIsTypingNumber {
             display.text = display.text! + sign
         } else {
@@ -41,6 +54,7 @@ class ViewController: UIViewController {
             if let result = brain.performOperation(operation) {
                 displayValue = result
             } else {
+                showError("Unknown operation")
                 displayValue = 0
             }
         }
