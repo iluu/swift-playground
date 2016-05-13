@@ -3,11 +3,11 @@ import Foundation
 class CalculatorBrain {
 
     private enum Op: CustomStringConvertible {
+        
         case Operand(Double)
         case UnaryOperation(String, Double -> Double)
         case BinaryOperation(String, (Double, Double) -> Double)
 
-        // part of CustomStringConvertible protocol contract
         var description: String {
             get {
                 switch self {
@@ -35,6 +35,25 @@ class CalculatorBrain {
         learnOp(Op.UnaryOperation("√", sqrt))
         learnOp(Op.UnaryOperation("sin", sin))
         learnOp(Op.UnaryOperation("cos", cos))
+    }
+    
+    var program: AnyObject {
+        get {
+            return opStack.map { $0.description }
+        }
+        set {
+            if let opSymbols = newValue as? Array<String> {
+                var newOpStack = [Op]()
+                for opSymbol in opSymbols {
+                    if let op = knownOps[opSymbol] {
+                        newOpStack.append(op)
+                    } else if let operand = NSNumberFormatter().numberFromString(opSymbol)?.doubleValue {
+                        newOpStack.append(.Operand(operand))
+                    }
+                }
+                opStack = newOpStack
+            }
+        }
     }
 
     // structs are passed by value and read-only (arrays, dictionaries, ints)
